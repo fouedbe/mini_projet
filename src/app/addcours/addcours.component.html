@@ -1,0 +1,59 @@
+<div class="w3-main" style="margin-left:340px;margin-right:40px ">
+ 
+    <div class="container">
+  
+      <form #f="ngForm" (ngSubmit)="add(f)">
+    <!-- firstName validation start here -->
+        <div class="form-group">
+    
+          <label for="exampleFormControlInput1">title</label>
+          <input type="text" class="form-control" placeholder="title" required name="title" #title="ngModel" ngModel minlength="2" maxlength="20">
+        </div>
+        <div class="alert alert-danger" *ngIf="title.errors?.['required'] && title.touched">
+          FirstName is required
+        </div>
+        <div class="alert alert-danger" *ngIf="title.errors?.['minlength'] && title.touched">
+          FirstName must be minimum 2 caractere
+        </div>
+    <!-- lastName validation end here -->
+    <div class="form-group">
+    
+      <label for="exampleFormControlInput1">title</label>
+      <input type="text" class="form-control" placeholder="description" required name="description" #description="ngModel" ngModel minlength="2" maxlength="20">
+    </div>
+    <div class="alert alert-danger" *ngIf="description.errors?.['required'] && description.touched">
+      FirstName is required
+    </div>
+    <div class="alert alert-danger" *ngIf="description.errors?.['minlength'] && description.touched">
+      FirstName must be minimum 2 caractere
+    </div>
+    <!-- lastName validation start here -->
+        <div class="form-group">
+            <label for="exampleFormControlInput1">price</label>
+            <input type="text" class="form-control" placeholder="price" required name="price" #price="ngModel" minlength="2" maxlength="20" ngModel>
+          </div>
+          <div class="alert alert-danger" *ngIf="price.errors?.['required'] && price.touched">
+            lastname is required
+          </div>
+          <div class="alert alert-danger" *ngIf="price.errors?.['minlength'] && price.touched">
+            lastname must be minimum 2 caractere
+          </div>
+    <!-- lastName validation end here -->
+    
+
+          <div class="alert alert-danger" *ngIf="messageErr">
+            {{messageErr}}
+          </div>
+    
+       <button class="btn btn-primary" [disabled]="f.invalid" >Add cours</button>
+      </form>
+    
+    
+     </div>
+    
+      
+    
+  </div>
+    
+  
+
